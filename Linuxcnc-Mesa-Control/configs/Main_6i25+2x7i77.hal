@@ -1,15 +1,20 @@
 #General Configuration of HAL interaction within the Machine
 
-loadrt trivkins
-loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[TRAJ]AXES
+loadrt [KINS]KINEMATICS
+loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS
 loadrt hostmot2
-loadrt hm2_pci config=" num_encoders=1 num_pwmgens=0 num_stepgens=5 sserial_port_0=00xxxx" 
-setp   hm2_5i25.0.watchdog.timeout_ns 5000000
+loadrt hm2_pci config=" num_encoders=12 num_pwmgens=0 num_stepgens=0 sserial_port_0=000000" 
+setp    hm2_5i25.0.watchdog.timeout_ns 5000000
+loadrt pid names=pid.x,pid.y,pid.z,pid.s
 
 
 addf hm2_5i25.0.read          servo-thread
 addf motion-command-handler   servo-thread
 addf motion-controller        servo-thread
+addf pid.x.do-pid-calcs       servo-thread
+addf pid.y.do-pid-calcs       servo-thread
+addf pid.z.do-pid-calcs       servo-thread
+addf pid.s.do-pid-calcs       servo-thread
 addf hm2_5i25.0.write         servo-thread
 #addf hm2_5i25.0.pet_watchdog  servo-thread
 
