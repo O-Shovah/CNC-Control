@@ -1,9 +1,8 @@
-
 loadrt [KINS]KINEMATICS
 loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS
 loadrt hostmot2
 loadrt hm2_pci config=" num_encoders=12 num_pwmgens=0 num_stepgens=0 sserial_port_0=000000" 
-setp   hm2_5i25.0.watchdog.timeout_ns 5000000
+setp    hm2_5i25.0.watchdog.timeout_ns 5000000
 loadrt pid names=pid.x,pid.y,pid.z,pid.s
 
 addf hm2_5i25.0.read          servo-thread
@@ -290,4 +289,3 @@ net tool-change-request     iocontrol.0.tool-change       =>  hal_manualtoolchan
 net tool-change-confirmed   iocontrol.0.tool-changed      <=  hal_manualtoolchange.changed
 net tool-number             iocontrol.0.tool-prep-number  =>  hal_manualtoolchange.number
 net tool-prepare-loopback   iocontrol.0.tool-prepare      =>  iocontrol.0.tool-prepared
-
