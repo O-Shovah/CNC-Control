@@ -29,10 +29,10 @@ net 7i77-Output-7        =>     hm2_5i25.0.7i77.0.3.output-07
 net 7i77D-Input-15      <=      hm2_5i25.0.7i77.0.0.input-15
 
 
-net JASD-7502.0.servo-ready-input      <=      hm2_5i25.0.7i77.0.0.input-1
-net JASD-7502.0.brake-release-input      <=      hm2_5i25.0.7i77.0.0.input-2
-net JASD-7502.0.servo-alarm-input      <=      hm2_5i25.0.7i77.0.0.input-3
-
+net JASD-7502.0.servo-ready-input      <=      hm2_5i25.0.7i77.0.0.input-01
+net JASD-7502.0.brake-release-input      <=      hm2_5i25.0.7i77.0.0.input-02
+net JASD-7502.0.servo-alarm-input      <=      hm2_5i25.0.7i77.0.0.input-03
+net JASD-7502.0.torque-in-limit-input      <=      hm2_5i25.0.7i77.0.0.input-04
 
 # --- 7I77-INPUTS ---
 net x-home-sw           <=      hm2_5i25.0.7i77.0.3.input-15
